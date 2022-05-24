@@ -7,37 +7,166 @@
     <title>calculo</title>
 </head>
 <body>
-    <header><h1>SUMAR DOS NUMEROS</h1></header>
+
+    <header>
+        <h1>SCRIPT PARA ESCOGER UN DIA DE LA SEMANA</h1>
+    </header>
+    <section class="res">
+        <br><br><br>
+        <!--creamos una caja para introducir datos numericos-->
+        <input class="cja1" type="number" id="di1" placeholder="número de tu dia favorito">
+        <!--creamos un boton para la caja-->
+        <button class="button" id="btndia">cual es tu dia</button>
+        <br><br><br>
+        <h2>Resultado del calculo: </h2>
+        <!--un div llamado resultado-->
+        <div class="resultado" id="resultado"></div>
+    
+    <script>
+        var d=document.getElementById("btndia");
+        //al hacer click se ejecutsra la funcion diassem//
+        d.addEventListener("click",diassem);
+        //nombramos a nuestra funcion diassem//
+        function  diassem()
+        {
+            var dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+            //el valor de di1 se va a almacenar en midia//
+            midia=parseInt(document.getElementById("di1").value);
+            //hara una resta del valor q hayamos ingresado en midia//
+            midia--;
+
+            if(midia>= 0 && midia< 7)
+            {
+                //llamamos a nuestro div llamado resultado y concatenamos la salida para// 
+                //hacerla visible en pantalla entonces llamamos al vector dias y la salida del if q esta en midia//
+                document.getElementById("resultado").innerHTML ="Tu dia favorito es: "+dias[midia]
+            }
+            
+            else
+            {
+                document.getElementById("resultado").innerHTML ="No existe tu dia favorito. "
+            }        
+        }   
+    </script>
+    </section>
+
+    <header><h1>SCRIPT QUE HACE OPERACIONES MATEMATICAS</h1></header>
     <section class="res">
     <br><br><br>
-    <input type="number" id="nro1">
-    <input type="number" id="nro2">
-    <button class="button" id="btn">+</button>
+    <input class="cja1" type="number" id="nro1">
+    <input class="cja1" type="number" id="nro2">
+    <button class="button" id="btn1">+</button>
     <button class="button" id="btn2">-</button>
+    <button class="button" id="btn3">*</button>
+    <button class="button" id="btn4">/</button>
+    <button class="button" id="btn5">^</button>
+    <!--creammos otra cja para numeros-->
+    <br><br>
+    <input class="cja1" type="number" id="nu1">
+    <button class="button" id="btn6">raiz</button>
+    <button class="button" id="btn7">exponencial</button>
+    <button class="button" id="btn8">coseno</button>
+    <button class="button" id="btn9">seno</button>
     <br><br><br>
-    <h2>Resultado del Calculo:</p>
-    <div id="resultado"></div>
+    <h2>Resultado del Calculo: </p>
+    <div id="resul"></div>
 
     <script>
-     //  registra un evento 
-    var b=document.getElementById('btn');
-    b.addEventListener('click',suma);
-    var r=document.getElementById('btn2');
-    r.addEventListener('click',resta);
+    var a=document.getElementById('btn1');
+    //al hacer click se ejecutsra la funcion suma//
+    a.addEventListener("click",suma);
+
+    var b=document.getElementById('btn2');
+    b.addEventListener("click",resta);
+
+    var c=document.getElementById('btn3');
+    c.addEventListener("click",multiplicacion);
+
+    var d=document.getElementById('btn4');
+    d.addEventListener("click",division);
+
+    var e=document.getElementById('btn5');
+    e.addEventListener("click",potencia);
+
+    var f=document.getElementById('btn6');
+    f.addEventListener("click",raiz);
+
+    var g=document.getElementById('btn7');
+    g.addEventListener("click",exponencial);
+
+    var h=document.getElementById('btn8');
+    h.addEventListener("click",coseno);
+
+    var i=document.getElementById('btn9');
+    i.addEventListener("click",seno);
+
+    //nombramos a nuestra funcion suma//
     function suma() 
     {
     var n1=parseInt(document.getElementById('nro1').value);
     var n2=parseInt(document.getElementById('nro2').value);
     var s=n1+n2;
-    document.getElementById("resultado").innerHTML = n1+"+"+n2+"="+s
+    document.getElementById("resul").innerHTML = n1+"+"+n2+" = "+s
     }
-    //funcion para la resta
+    //nombramos a nuestra funcion resta//
     function resta() 
     {
         var n1=parseInt(document.getElementById('nro1').value);
         var n2=parseInt(document.getElementById('nro2').value);
         var s=n1-n2;
-        document.getElementById("resultado").innerHTML = n1+"-"+n2+"="+s
+        document.getElementById("resul").innerHTML = n1+"-"+n2+" = "+s
+    }
+    //nombramos a nuestra funcion multiplicacion//
+    function multiplicacion() 
+    {
+        var n1=parseInt(document.getElementById('nro1').value);
+        var n2=parseInt(document.getElementById('nro2').value);
+        var s=n1*n2;
+        document.getElementById("resul").innerHTML = n1+"*"+n2+" = "+s
+    }
+    //nombramos a nuestra funcion division//
+    function division() 
+    {
+        var n1=parseInt(document.getElementById('nro1').value);
+        var n2=parseInt(document.getElementById('nro2').value);
+        var s=n1/n2;
+        document.getElementById("resul").innerHTML = n1+"/"+n2+" = "+s
+    }
+    //nombramos a nuestra funcion potencia//
+    function potencia() 
+    {
+        var n1=parseInt(document.getElementById('nro1').value);
+        var n2=parseInt(document.getElementById('nro2').value);
+        var s=Math.pow(n1,n2);
+        document.getElementById("resul").innerHTML = n1+"^"+n2+" = "+s
+    }
+    //nombramos a nuestra funcion raiz//
+    function raiz() 
+    {
+        var n=parseInt(document.getElementById("nu1").value);
+        var s=Math.sqrt(n);
+        document.getElementById("resul").innerHTML = "La raiz de "+n+" = "+s
+    }
+    //nombramos a nuestra funcion exponencial//
+    function exponencial() 
+    {
+        var n=parseInt(document.getElementById("nu1").value);
+        var s=Math.exp(n);
+        document.getElementById("resul").innerHTML = "El exponencial de "+n+" = "+s
+    }
+    //nombramos a nuestra funcion coseno//
+    function coseno() 
+    {
+        var n=parseInt(document.getElementById("nu1").value);
+        var s=Math.cos(n * Math.PI / 180);
+        document.getElementById("resul").innerHTML = "El coseno de "+n+" = "+s
+    }
+    //nombramos a nuestra funcion seno//
+    function seno() 
+    {
+        var n=parseInt(document.getElementById("nu1").value);
+        var s=Math.sin(n * Math.PI / 180);
+        document.getElementById("resul").innerHTML = "El seno de "+n+" = "+s
     }
     </script>
     </section>

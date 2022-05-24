@@ -1,19 +1,36 @@
-h1{
-    background-color: #eb5534;
-    color: #cfc9c8;
-    text-align: center;
-}
 .res{
-    padding: 15px;
-    margin: 5px;
+    padding: 10px;
     text-align: center;
-    color: #1f1918;
+    color: #184f83;
     font-size: 24px;
 }
+
+h1{
+    margin: 10px;
+    padding: 10px;
+    background-color: #184f83;
+    color: #f6674d;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.resultado{
+    font-size: 36px;
+}
+
+.cja1{
+    max-width: 90%;
+    margin: 10px;
+    padding: 8px;
+    border-radius: 10px;
+    color: #f6674d;
+    font-size: 18px;
+}
+
 .button{
-    background-color: #1f1918;
+    background-color: #232324;
     border-radius: 5px;
-    color: #cfc9c8;
+    color: #f6674d;
     padding: 10px;
     text-align: center;
     text-decoration: none;
